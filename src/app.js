@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import getArgs from './helpers/args.js';
 import { printHelp } from './services/log.service.js';
+import saveKeyValue from './services/storage.service.js';
 
 
 const init = () => {
@@ -8,6 +9,10 @@ const init = () => {
 	
 	if (args.h) {
 		printHelp();
+	}
+
+	if (args.t) {
+		saveKeyValue('token', args.t);
 	}
 };
 
