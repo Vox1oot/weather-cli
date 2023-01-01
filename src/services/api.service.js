@@ -1,9 +1,10 @@
-/* https://api.openweathermap.org/data/2.5/weather?q=chelyabinsk&appid=10797f0901b1099ed9410d48268f58cc&units=metric&lang=ru */
 import axios from 'axios';
 import { getKeyValue, TOKEN_DICTIONARY } from "./storage.service.js";
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 const getWeather = async (city) => {
-	const token = await getKeyValue(TOKEN_DICTIONARY.token);
+	const token = process.env.TOKEN ?? await getKeyValue(TOKEN_DICTIONARY.token);
 
 	if (!token) {
 		throw new Error('Не задан ключ API. Добавьте ключ командой: -t [API_KEY]');
@@ -21,4 +22,4 @@ const getWeather = async (city) => {
 	return data;
 };
 
-await getWeather('chelyabinsk');
+export default getWeather;
