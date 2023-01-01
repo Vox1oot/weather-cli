@@ -5,7 +5,7 @@
   "main": "./src/app.js",
   "type": "module",
   "bin": {
-    "weather": "./src/app.js"
+    "weather": "/src/app.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -24,6 +24,7 @@
   "dependencies": {
     "axios": "^1.2.1",
     "chalk": "^5.2.0",
-    "dedent-js": "^1.0.1"
+    "dedent-js": "^1.0.1",
+    "dotenv": "^16.0.3"
   }
 }

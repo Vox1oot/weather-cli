@@ -26,10 +26,10 @@ const getKeyValue = async (key) => {
 	if (await isExist(filePath)) {
 		const fileData = await readFile(filePath);
 		const data = JSON.parse(fileData);
-		return data[key];
+		return data[key] ?? null;
 	}
 	return null;
-}
+};
 
 const isExist = async (path) => {
 	try {

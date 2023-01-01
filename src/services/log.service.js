@@ -22,4 +22,14 @@ const printHelp = () => {
 	);
 };
 
-export { printError, printSuccess, printHelp };
+const printWeather = (weather, icon) => {
+	log(
+		dedent`${chalk.bgCyan(' ПОГОДА: ')}
+		Погода в городе: ${weather.name}
+		${weather.weather[0].description} -> ${icon} 
+		Температура: ${weather.main.temp} °С
+		`
+	);
+}
+
+export { printWeather, printError, printSuccess, printHelp };
